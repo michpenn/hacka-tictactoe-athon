@@ -19,9 +19,9 @@ $(document).ready(function(){
         // append cells to HTML, break to next line according to cell_row #
         for (i = 1; i < cell_array.length + 1; i++) {
             newDiv = $("<div>");
-            $("body").append(newDiv);
+            $("#cell-area").append(newDiv);
             if (i % cell_row === 0 && i !== 0) {
-                $("body").append("<br>");
+                $("#cell-area").append("<br>");
             }
         }
 
