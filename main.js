@@ -1,7 +1,7 @@
 var cell_row = 0;
 var cell_full = 0;
 var cell_array = [];
-var i = 0;
+var b = 0;
 var newDiv;
 
 $(document).ready(function () {
@@ -12,19 +12,19 @@ $(document).ready(function () {
         cell_full = (cell_row * cell_row);
 
         // create an array matching the cell_full_size and assign its numbers
-        for (i; i < cell_full; i++) {
-            cell_array[i] = i;
+        for (b; b < cell_full; b++) {
+            cell_array[b] = b;
         }
 
         // append cells to HTML, break to next line according to cell_row #
-        for (i = 1; i < cell_array.length + 1; i++) {
-            newDiv = $("<div>");
+        for (b = 1; b < cell_array.length + 1; b++) {
+            newDiv = $("<div>").;
             $("#cell-area").append(newDiv);
-            if (i % cell_row === 0 && i !== 0) {
+            if (b % cell_row === 0 && b !== 0) {
                 $("#cell-area").append("<br>");
             }
         }
-
+        $("#select-board").css("visibility","hidden");
     })
 });
 
