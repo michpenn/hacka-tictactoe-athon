@@ -3,4 +3,30 @@ body{
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
+    background-size: 90% auto;
+}
+
+#game-board {
+    border: 2px solid red;
+    width: 42vw;
+    height: 52vh;
+    position: absolute;
+    left: 29%;
+    top: 38%;
+    text-align: center;
+}
+#select-board {
+    margin: 5px;
+}
+#cell-area {
+    border: 2px solid green;
+    width: 90%;
+    height: 70%;
+    margin: 5% auto;
+}
+#cell-area > div {
+    display: inline-block;
+    width: 12%;
+    height: 20%;
+    border: 2px solid #000;
 }
