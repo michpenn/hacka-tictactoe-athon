@@ -21,7 +21,7 @@ function makeCellLabels(rows) {
     }
 }
 
-makeCellLabels(4);
+makeCellLabels(3);
 
 function generateWins(cellvalues) {
     var rowStartMarker = 0;
