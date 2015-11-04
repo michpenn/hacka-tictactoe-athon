@@ -1,6 +1,10 @@
 var player1 = true;
 var player2 = false;
 
+var wins_3x3 = [ 7, 56, 448, 73, 146, 292, 273, 84];
+
+
+
 
 
 function Board(){
@@ -8,17 +12,23 @@ function Board(){
     this.can_be_clicked = true;
 
     this.wins = function(){
-        for(var i =0; i< wins.length; i++){
-            if((wins[i] & score) === wins[i]){
+        for(var i =0; i< wins_3x3.length; i++){
+            if((wins_3x3[i] & this.total_player1[0]) === wins_3x3[i]){
 
-                console.log("YOU WON");
+                this.display_results("player 1 wins");
             }
-            else{
+            else if((wins_3x3[i] & this.total_player2[0]) === wins_3x3[i]){
+                this.display_results("player 2 wins");
+            }
 
-                console.log("lost");
-            }
         }
+
     };
+    this.display_results = function(player){
+        var h1 = $('<h1>').text(player);
+        $('#display_results').append(h1);
+    };
+
     this.change_player =function(){
         if(player1 === true){
             player1 = false;
@@ -29,35 +39,39 @@ function Board(){
             player2 = false;
         }
 
-
     };
-    this.total_player1 = [];
-    this.total_player2 = [];
+
+    this.total_player1 = [0];
+    this.total_player2 = [0];
 
     this.square_clicked = function(square){
+        var total =0;
         if(player1){
-            this.total_player1.push(square);
+            total+= parseFloat(square);
+            var new_total1 = this.total_player1[0] + total;
+            this.total_player1.pop();
+            this.total_player1.push(new_total1);
         }
         else{
-            this.total_player2.push(square);
+            total+= parseFloat(square);
+            var new_total2 = this.total_player2[0] + total;
+            this.total_player2.pop();
+            this.total_player2.push(new_total2);
         }
+        console.log(this.total_player1, this.total_player2);
+        ttt_game.wins();
 
-        console.log("this is the total for player one ", this.total_player1, "this is the total for player two ", this.total_player2);
     };
 }
 
 
 var ttt_game = new Board();
 
-$('button').on('click', function(){
-    var player = $('this');
-
-});
-
 $('div').on('click', function(){
 
     var square = $(this).text();
     ttt_game.square_clicked(square);
     ttt_game.change_player();
+
 
 });
