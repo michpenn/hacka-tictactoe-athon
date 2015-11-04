@@ -4,8 +4,8 @@ var cell_array = [];
 var i = 0;
 var newDiv;
 
-$(document).ready(function(){
-    $("button").click(function(){
+$(document).ready(function () {
+    $("button").click(function () {
 
         // assign selected cell size to cell_row(3) and get full size cell numbers (3x3 = 9)
         cell_row = $(this).attr("id");
