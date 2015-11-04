@@ -7,6 +7,7 @@ var cellRows = [];
 var cellColumns = [];
 var cellDiagonals = [];
 var winningArrays = [];
+var winningValues = [];
 var NumberOfRows;
 
 function makeCellLabels(rows) {
@@ -66,6 +67,18 @@ function generateWins(cellvalues) {
     console.log('winning diagonal: ', cellDiagonals);
     winningArrays.push(cellRows, cellColumns, cellDiagonals);
     console.log('winning options: ', winningArrays);
+
+    for(var i=0; i<winningArrays.length; i++) {
+        var getThisValue = winningArrays[i];
+        var value;
+        for(var k=0; k<getThisValue.length; k++) {
+            value = getThisValue[k].join(" + ");
+            value = eval(value);
+            winningValues.push(value);
+        }
+    }
+
+    console.log('You win if you get one of these scores: ', winningValues);
 }
 
 generateWins(cellvalues);
