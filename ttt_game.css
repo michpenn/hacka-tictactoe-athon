@@ -4,14 +4,13 @@ body {
     background-attachment: fixed;
     background-position: center;
     background-size: 65% auto;
-
-
-
-}
-body{
     background-color: #000;
     color: #fff;
 }
+h1 {
+    color: black;
+}
+
 .header {
 
 }
@@ -91,4 +90,9 @@ body{
 
 .selected {
 
+}
+
+#display_results {
+    color: grey;
+    opacity: 0;
 }

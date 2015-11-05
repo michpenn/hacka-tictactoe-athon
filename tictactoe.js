@@ -52,7 +52,7 @@ $(document).ready(function () {
         $(targetSquare).on('click', function () {
             var square = $(this).text();
             justclicked=this;
-                ttt_game.square_clicked(square);
+                ttt_game.square_clicked(square);  // *** 1
             /*(function() {
                 if ($(this).find("img src").length > 0) {
                     console.log('pic');
@@ -81,32 +81,43 @@ $(document).ready(function () {
 
     function Board() {
         //loops through wins array, compares player scores with winning scores
-        this.wins = function () {
+        this.wins = function () {  // *** 3, if won > go to 4, if not won > go to 5
             for (var i = 0; i < wins.length; i++) {
                 if ((wins[i] & this.total_player1[0]) === wins[i]) {
 
-                    this.display_results("player 1 wins");
+                    this.display_results(1);
                 }
                 else if ((wins[i] & this.total_player2[0]) === wins[i]) {
-                    this.display_results("player 2 wins");
+                    this.display_results(2);
                 }
 
             }
 
         };
         //appends to game board with winner result
-        this.display_results = function (player) {
-            var h1 = $('<h1>').text(player);
-            $('#display_results').append(h1);
+        this.display_results = function (player) {  // *** 4 (game won / finished)
+            if (player === 1) {
+                var h1 = $('<h1>').text("Player 1 Wins!");
+                $('#display_results').append(h1);
+                $('#display_results').css("opacity","1");
+                $('#cell-area').replaceWith("<img src='images/dan_win.png'>")
+            }
+            else if (player === 2) {
+                var h1 = $('<h1>').text("Player 2 Wins!");
+                $('#display_results').append(h1);
+                $('#display_results').css("opacity","1");
+                $('#cell-area').replaceWith("<img src='images/eric_win.png'>")
+            }
+
         };
 
 //changes player
-        this.change_player = function () {
-            if (player1 === true) {
+        this.change_player = function () {  // *** 5, exit function and wait for next click
+            if (player1 === true && justclicked["childElementCount"]==0) {
                 player1 = false;
                 player2 = true;
             }
-            else {
+            else if (justclicked["childElementCount"]==0) {
                 player1 = true;
                 player2 = false;
             }
@@ -116,15 +127,15 @@ $(document).ready(function () {
         this.total_player2 = [0];
 
 
-        this.square_clicked = function (square) {
+        this.square_clicked = function (square) {  // ** 2
             var total = 0;
-            if (player1) {
+            if (player1 && justclicked["childElementCount"]==0) {
                 total += parseFloat(square);
                 var new_total1 = this.total_player1[0] + total;
                 this.total_player1.pop();
                 this.total_player1.push(new_total1);
             }
-            else {
+            else if (justclicked["childElementCount"]==0) {
                 total += parseFloat(square);
                 var new_total2 = this.total_player2[0] + total;
                 this.total_player2.pop();
