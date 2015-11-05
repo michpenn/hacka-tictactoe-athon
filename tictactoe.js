@@ -12,7 +12,7 @@ var NumberOfRows;
 var player1 = true;
 var player2 = false;
 
-
+var justclicked;
 var cell_row = 0;
 var cell_full = 0;
 var cell_array = [];
@@ -51,12 +51,7 @@ $(document).ready(function () {
         targetSquare = document.getElementsByClassName('square');
         $(targetSquare).on('click', function () {
             var square = $(this).text();
-            console.log('this address: ', this);
-            var check = this;
-            (function(){
-                console.log($('check').children());
-                console.log($('check').find('img').hasClass('selected'));
-            })();
+            justclicked=this;
                 ttt_game.square_clicked(square);
             /*(function() {
                 if ($(this).find("img src").length > 0) {
@@ -65,14 +60,21 @@ $(document).ready(function () {
                     console.log('there is no pic');
                 }
             })();*/
+            if (justclicked["childElementCount"]==0) {
                 if (player1) {
-                    $(this).append("<img src='images/coffeeO.png' class='selected'>");
+                    $(this).append("<img src='images/coffeeO.png'>");
+                    $(this).addClass('selected');
                 }
                 if (player2) {
-                    $(this).append("<img src='images/markersX.png' class='selected'>");
+                    $(this).append("<img src='images/markersX.png'>");
+                    $(this).addClass('selected');
                 }
+            }
 
             });
+        /*(function(){
+            $(justclicked).unbind('click');
+        })();*/
 
         })
     });
