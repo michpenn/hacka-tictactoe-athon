@@ -10,6 +10,7 @@ $(document).ready(function () {
     $("button").click(btnClick);
     $(".container").click(divClick);
 
+<<<<<<< HEAD
 });
 
 function btnClick() {
@@ -29,6 +30,20 @@ function btnClick() {
         newDiv.append("<img src='images/coffeeO.png' class='player1'><img src='images/markersX.png' class='player2'>");
         if (b % cell_row === 0 && b !== 0) {
             $("#cell-area").append("<br>");
+=======
+        // create an array matching the cell_full_size and assign its numbers
+        for (b; b < cell_full; b++) {
+            cell_array[b] = b;
+        }
+
+        // append cells to HTML, break to next line according to cell_row #
+        for (b = 1; b < cell_array.length + 1; b++) {
+            newDiv = $("<div>");
+            $("#cell-area").append(newDiv);
+            if (b % cell_row === 0 && b !== 0) {
+                $("#cell-area").append("<br>");
+            }
+>>>>>>> origin/Dev
         }
     }
     $("#select-board").css("visibility","hidden");

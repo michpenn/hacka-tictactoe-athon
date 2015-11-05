@@ -1,4 +1,4 @@
-body{
+body {
     background-image: url("images/bg_image2.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -6,18 +6,24 @@ body{
     background-size: 69% auto;
 }
 
+.header {
+
+}
+
 #game-board {
     border: 2px solid red;
     width: 44vw;
     height: 68vh;
-    position: relative;
+    position: fixed;
     left: 28%;
     top: 20vh;
     text-align: center;
 }
+
 #select-board {
     margin-top: 7px;
 }
+
 #cell-area {
     border: 2px solid green;
     width: 95%;
@@ -25,6 +31,7 @@ body{
     margin: 14% auto 0;
     padding: 15px 0;
 }
+
 #cell-area > div {
     display: inline-block;
     width: 21%;
@@ -39,5 +46,40 @@ body{
     height: 100%;
     top: 0;
     left: 0;
+    /*visibility: hidden;*/
+}
+
+
+.card-container {
+    width: 25%;
+    position: relative;
+    display: inline-block;
+    border: solid black 1px;
+
+}
+
+.square {
+    color: white;
+    border: 1px;
+}
+
+.header {
+    font-size: 2em;
+    font-family: 'Ubuntu Condensed', sans-serif;
+    text-align: center;
+
+
+}
+
+.player_divs {
+    font-size: 2em;
+    font-family: 'Ubuntu Condensed', sans-serif;
+    margin: 10px;
+
+}
+.player1{
+    visibility: hidden;
+}
+.player2{
     visibility: hidden;
 }

@@ -11,79 +11,47 @@
 
     <link href="ttt_game.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <script src="tictactoe.js"></script>
-
-
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
-    <script src="main.js"></script>
-    <script src="click_function.js"></script>
+    <script src="tictactoe.js"></script>
 
 
 </head>
 
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<div class="header">
+    <h1 class="header">TicTacToe LearningFuze Style</h1>
+    <h3>The teacher our in our game!</h3>
+    <h3 id="display_results">Results</h3>
+</div>
+<div class="player_divs">
+    <div>
+        Player One: Dan
+    </div>
 
+    <div style="float: right">
+        Player Two: Eric
+    </div>
+</div>
 
 <div id="game-board">
 
     <div id="select-board">
-        <strong>Select Cell Size</strong><br>
-        <button id="3">3x3</button>
-        <button id="4">4x4</button>
+        <strong>Select Level</strong><br>
+        <button id="3">Easy</button>
+        <button id="4">Not So Easy</button>
     </div>
 
+    <!-- cells and images are dynamically created within following #cell-area div -->
     <div id="cell-area"></div>
 
 </div>
 
-
 </body>
 
 </html>
 
 
-<!--
-<div id=game-area>
-    <div class="card-container">
-        <div class="front"><img src="https://s3.amazonaws.com/uploads.hipchat.com/165467/2779869/HiiDjhL1E6X402n/markersX.png"> </div>
-        <div class="back"><img src="https://s3.amazonaws.com/uploads.hipchat.com/165467/2779869/sLKPvMIDq5oYXQG/coffeeO.png" ></div>
-    </div>
-    <div class="card-container">
-        <div class="front"><img src="https://s3.amazonaws.com/uploads.hipchat.com/165467/2779869/HiiDjhL1E6X402n/markersX.png"> </div>
-        <div class="back"><img src="https://s3.amazonaws.com/uploads.hipchat.com/165467/2779869/sLKPvMIDq5oYXQG/coffeeO.png" ></div>
-    </div>
-    <div class="card-container">
-        <div class="front"><img src="https://s3.amazonaws.com/uploads.hipchat.com/165467/2779869/HiiDjhL1E6X402n/markersX.png"> </div>
-        <div class="back"><img src="https://s3.amazonaws.com/uploads.hipchat.com/165467/2779869/sLKPvMIDq5oYXQG/coffeeO.png" ></div>
-    </div>
-    <div class="card-container">
-        <div class="front"><img src="https://s3.amazonaws.com/uploads.hipchat.com/165467/2779869/HiiDjhL1E6X402n/markersX.png"> </div>
-        <div class="back"><img src="https://s3.amazonaws.com/uploads.hipchat.com/165467/2779869/sLKPvMIDq5oYXQG/coffeeO.png" ></div>
-    </div>
-    <div class="card-container">
-        <div class="front"><img src="https://s3.amazonaws.com/uploads.hipchat.com/165467/2779869/HiiDjhL1E6X402n/markersX.png"> </div>
-        <div class="back"><img src="https://s3.amazonaws.com/uploads.hipchat.com/165467/2779869/sLKPvMIDq5oYXQG/coffeeO.png" ></div>
-    </div>
-    <div class="card-container">
-        <div class="front"><img src="https://s3.amazonaws.com/uploads.hipchat.com/165467/2779869/HiiDjhL1E6X402n/markersX.png"> </div>
-        <div class="back"><img src="https://s3.amazonaws.com/uploads.hipchat.com/165467/2779869/sLKPvMIDq5oYXQG/coffeeO.png" ></div>
-    </div>
-    <div class="card-container">
-        <div class="front"><img src="https://s3.amazonaws.com/uploads.hipchat.com/165467/2779869/HiiDjhL1E6X402n/markersX.png"> </div>
-        <div class="back"><img src="https://s3.amazonaws.com/uploads.hipchat.com/165467/2779869/sLKPvMIDq5oYXQG/coffeeO.png" ></div>
-    </div>
-    <div class="card-container">
-        <div class="front"><img src="https://s3.amazonaws.com/uploads.hipchat.com/165467/2779869/HiiDjhL1E6X402n/markersX.png"> </div>
-        <div class="back"><img src="https://s3.amazonaws.com/uploads.hipchat.com/165467/2779869/sLKPvMIDq5oYXQG/coffeeO.png" ></div>
-    </div>
-    <div class="card-container">
-        <div class="front"><img src="https://s3.amazonaws.com/uploads.hipchat.com/165467/2779869/HiiDjhL1E6X402n/markersX.png"> </div>
-        <div class="back"><img src="https://s3.amazonaws.com/uploads.hipchat.com/165467/2779869/sLKPvMIDq5oYXQG/coffeeO.png" ></div>
-    </div>
-</div>
-</body>
-</html>
--->
