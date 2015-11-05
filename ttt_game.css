@@ -46,17 +46,16 @@ body {
     height: 100%;
     top: 0;
     left: 0;
-    /*visibility: hidden;*/
 }
 
-
-.card-container {
-    width: 25%;
-    position: relative;
-    display: inline-block;
-    border: solid black 1px;
-
+.player1 {
+    visibility: hidden;
 }
+
+.player2 {
+    visibility: hidden;
+}
+
 
 .square {
     color: white;
