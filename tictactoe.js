@@ -18,6 +18,7 @@ var cell_full = 0;
 var cell_array = [];
 var b = 0;
 var newDiv;
+var targetSquare;
 
 $(document).ready(function () {
     $("button").click(function () {
@@ -36,96 +37,108 @@ $(document).ready(function () {
         // append cells to HTML, break to next line according to cell_row #
         for (b = 1; b < cell_array.length + 1; b++) {
             newDiv = $("<div>", {
-                text: cellvalues[b-1],
-                class: 'square'
+                class: 'square',
+                text: cellvalues[b - 1]
+
             });
+
+
             $("#cell-area").append(newDiv);
             if (b % cell_row === 0 && b !== 0) {
                 $("#cell-area").append("<br>");
             }
         }
+        targetSquare = document.getElementsByClassName('square');
+        $(targetSquare).on('click', function() {
+            console.log('did it work?');
+        });
 
-    });
+        })
+        });
 
 
-function makeCellLabels(rows) {
-    var boardsize = rows * rows;
-    NumberOfRows = rows;
+    function makeCellLabels(rows) {
+        var boardsize = rows * rows;
+        NumberOfRows = rows;
 
-    for (var i = 0; i < boardsize; i++) {
-        celllabel = Math.pow(2, i);
-        console.log(celllabel);
-        cellvalues.push(celllabel);
+        for (var i = 0; i < boardsize; i++) {
+            celllabel = Math.pow(2, i);
+            console.log(celllabel);
+            cellvalues.push(celllabel);
 
-    }
-};
+        }
+    };
 
-makeCellLabels(cell_row);
+    makeCellLabels(cell_row);
 
-function generateWins(cellvalues) {
-    var rowStartMarker = 0;
-    var rowEndMarker = NumberOfRows - 1;
-    var rowArray = [];
-    var columnArray = [];
-    var diagonalArray = [];
-    var diagonalArray2 = [];
-    for (var j = 0; j < cellvalues.length; j++) {
-        //this makes the row arrays
-        if (cellvalues[j] == cellvalues[rowStartMarker]) {
-            for (var k = j; k <= rowEndMarker; k++) {
-                rowArray.push(cellvalues[k]);
-            }
-            cellRows.push(rowArray);
-            rowArray = [];
-            //This makes the column arrays
-            for (var m = j; m < NumberOfRows; m++) {
-                for (var n = j; n < NumberOfRows; n++) {
-                    if (k == NumberOfRows && m == 1) {
-                        //this makes the diagonals
-                        var diagonal = ((k + m) * n);
-                        var diagonal2 = ((k - m) * (n + 1));
-                        diagonalArray.push(cellvalues[diagonal]);
-                        diagonalArray2.push(cellvalues[diagonal2]);
-                    }
-                    columnArray.push(cellvalues[m + (n * NumberOfRows)])
+    function generateWins(cellvalues) {
+        var rowStartMarker = 0;
+        var rowEndMarker = NumberOfRows - 1;
+        var rowArray = [];
+        var columnArray = [];
+        var diagonalArray = [];
+        var diagonalArray2 = [];
+        for (var j = 0; j < cellvalues.length; j++) {
+            //this makes the row arrays
+            if (cellvalues[j] == cellvalues[rowStartMarker]) {
+                for (var k = j; k <= rowEndMarker; k++) {
+                    rowArray.push(cellvalues[k]);
                 }
-                cellColumns.push(columnArray);
-                columnArray = [];
+                cellRows.push(rowArray);
+                rowArray = [];
+                //This makes the column arrays
+                for (var m = j; m < NumberOfRows; m++) {
+                    for (var n = j; n < NumberOfRows; n++) {
+                        if (k == NumberOfRows && m == 1) {
+                            //this makes the diagonals
+                            var diagonal = ((k + m) * n);
+                            var diagonal2 = ((k - m) * (n + 1));
+                            diagonalArray.push(cellvalues[diagonal]);
+                            diagonalArray2.push(cellvalues[diagonal2]);
+                        }
+                        columnArray.push(cellvalues[m + (n * NumberOfRows)])
+                    }
+                    cellColumns.push(columnArray);
+                    columnArray = [];
+                }
+
+                rowStartMarker += NumberOfRows;
             }
+            else if (cellvalues[j] == cellvalues[rowEndMarker]) {
+                rowEndMarker += NumberOfRows;
 
-            rowStartMarker += NumberOfRows;
+            }
         }
-        else if (cellvalues[j] == cellvalues[rowEndMarker]) {
-            rowEndMarker += NumberOfRows;
+        cellDiagonals.push(diagonalArray, diagonalArray2);
+        console.log('winning rows: ', cellRows);
+        console.log('winning columns: ', cellColumns);
+        console.log('winning diagonal: ', cellDiagonals);
+        winningArrays.push(cellRows, cellColumns, cellDiagonals);
+        console.log('winning options: ', winningArrays);
 
+        for (var i = 0; i < winningArrays.length; i++) {
+            var getThisValue = winningArrays[i];
+            var value;
+            for (var k = 0; k < getThisValue.length; k++) {
+                value = getThisValue[k].join(" + ");
+                value = eval(value);
+                wins.push(value);
+            }
         }
+
+        console.log('You win if you get one of these scores: ', wins);
     }
-    cellDiagonals.push(diagonalArray, diagonalArray2);
-    console.log('winning rows: ', cellRows);
-    console.log('winning columns: ', cellColumns);
-    console.log('winning diagonal: ', cellDiagonals);
-    winningArrays.push(cellRows, cellColumns, cellDiagonals);
-    console.log('winning options: ', winningArrays);
 
-    for (var i = 0; i < winningArrays.length; i++) {
-        var getThisValue = winningArrays[i];
-        var value;
-        for (var k = 0; k < getThisValue.length; k++) {
-            value = getThisValue[k].join(" + ");
-            value = eval(value);
-            wins.push(value);
-        }
-    }
 
-    console.log('You win if you get one of these scores: ', wins);
-}
 
-    $('.square').on('click', function() {
+    //var findSquares = document.getElementsByClassName('square');
+
+    /*findSquares.click(function () {
         console.log('click works');
-    });
+    }); */
 
 //makes new game/board
- //   var ttt_game = new Board();
+    //   var ttt_game = new Board();
 
 //
 //    $('div').on('click', function () {
@@ -195,7 +208,5 @@ function generateWins(cellvalues) {
 //    };
 
 
-
-});
 
 
