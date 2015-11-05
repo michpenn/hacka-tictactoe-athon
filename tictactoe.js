@@ -222,6 +222,13 @@ $(document).ready(function () {
 
         console.log('You win if you get one of these scores: ', wins);
     }
+function thought_bubbles() {
+    setTimeout(function () {
+        $('.Dan_though1, .Eric_thought1').fadeOut('slow');
+    }, 4000);
+
+}
+thought_bubbles();
 
 
 //makes new game/board
