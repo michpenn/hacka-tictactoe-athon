@@ -29,3 +29,7 @@
 img{
     width: 100%;
 }
+.header {
+    font-size: 2em;
+    font-family:'Ubuntu Condensed', sans-serif;
+}
