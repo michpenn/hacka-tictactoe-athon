@@ -66,6 +66,8 @@ body {
     font-size: 2em;
     font-family: 'Ubuntu Condensed', sans-serif;
     text-align: center;
+
+
 }
 
 .player_divs {
@@ -73,4 +75,10 @@ body {
     font-family: 'Ubuntu Condensed', sans-serif;
     margin: 10px;
 
+}
+.player1{
+    visibility: hidden;
+}
+.player2{
+    visibility: hidden;
 }
