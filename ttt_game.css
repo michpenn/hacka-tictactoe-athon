@@ -1,77 +1,77 @@
-body{
-    background-image: url("images/background_image.png");
+body {
+    background-image: url("images/bg_image2.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-    background-size: 90% auto;
+    background-size: 69% auto;
+}
+
+.header {
+
 }
 
 #game-board {
     border: 2px solid red;
-    width: 42vw;
-    height: 52vh;
-    position: absolute;
-    left: 29%;
-    top: 38%;
+    width: 44vw;
+    height: 68vh;
+    position: fixed;
+    left: 28%;
+    top: 20vh;
     text-align: center;
 }
+
 #select-board {
-    margin: 5px;
+    margin-top: 7px;
 }
+
 #cell-area {
     border: 2px solid green;
-    width: 90%;
-    height: 70%;
-    margin: 5% auto;
+    width: 95%;
+    height: 75%;
+    margin: 14% auto 0;
+    padding: 15px 0;
 }
+
 #cell-area > div {
     display: inline-block;
-    width: 12%;
-    height: 20%;
+    width: 21%;
+    height: 21%;
     border: 2px solid #000;
+    position: relative;
 }
 
-#game-area{
-    width:70%;
-    border: solid red 1px;
-
-
+#cell-area > div img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    /*visibility: hidden;*/
 }
-.card-container  {
+
+
+.card-container {
     width: 25%;
     position: relative;
     display: inline-block;
     border: solid black 1px;
 
 }
+
 .square {
     color: white;
+    border: 1px;
 }
 
-.front {
-    width:100%;
-    height: 100%;
-    position: absolute;
-    opacity: 0;
-
-}
-
-.back {
-    width:100%;
-    position: relative;
-
-}
-img{
-    width: 100%;
-}
 .header {
     font-size: 2em;
-    font-family:'Ubuntu Condensed', sans-serif;
+    font-family: 'Ubuntu Condensed', sans-serif;
     text-align: center;
 }
+
 .player_divs {
     font-size: 2em;
-    font-family:'Ubuntu Condensed', sans-serif;
+    font-family: 'Ubuntu Condensed', sans-serif;
     margin: 10px;
 
 }

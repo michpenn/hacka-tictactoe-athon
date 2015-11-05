@@ -42,12 +42,13 @@ $(document).ready(function () {
 
             });
 
-
+            newDiv.append("<img src='images/coffeeO.png' class='player1'><img src='images/markersX.png' class='player2'>");
             $("#cell-area").append(newDiv);
             if (b % cell_row === 0 && b !== 0) {
                 $("#cell-area").append("<br>");
             }
         }
+        $("#select-board").css("visibility","hidden");
         targetSquare = document.getElementsByClassName('square');
         $(targetSquare).on('click', function () {
             var square = $(this).text();
