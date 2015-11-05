@@ -1,17 +1,23 @@
 body {
-    background-image: url("images/bg_image2.jpg");
+    background-image: url("images/background.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-    background-size: 69% auto;
-}
+    background-size: 65% auto;
 
+
+
+}
+body{
+    background-color: #000;
+    color: #fff;
+}
 .header {
 
 }
 
 #game-board {
-    border: 2px solid red;
+
     width: 44vw;
     height: 68vh;
     position: fixed;
@@ -25,7 +31,7 @@ body {
 }
 
 #cell-area {
-    border: 2px solid green;
+
     width: 95%;
     height: 75%;
     margin: 14% auto 0;
