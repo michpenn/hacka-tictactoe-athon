@@ -16,9 +16,9 @@ $(document).ready(function () {
             cell_array[b] = b;
         }
 
-        // append cells to HTML, break to next line according to cell_row #
+        // append cells & images to #cell-area DOM, break the set of cells to next line according to cell_row #
         for (b = 1; b < cell_array.length + 1; b++) {
-            newDiv = $("<div>").;
+            newDiv = $("<div>").append("<img src='images/coffeeO.png'><img src='images/markersX.png'>");
             $("#cell-area").append(newDiv);
             if (b % cell_row === 0 && b !== 0) {
                 $("#cell-area").append("<br>");
