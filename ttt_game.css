@@ -44,6 +44,9 @@ body{
     border: solid black 1px;
 
 }
+.square {
+    color: white;
+}
 
 .front {
     width:100%;
