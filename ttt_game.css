@@ -12,9 +12,6 @@ h1 {
     color: black;
 }
 
-.header {
-
-}
 
 #game-board {
 
@@ -79,6 +76,7 @@ h1 {
 
 .square {
     border: 1px;
+    color: transparent;
 }
 
 .header {
