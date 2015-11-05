@@ -3,7 +3,7 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-    background-size: 65% auto;
+    background-size: 50% auto;
 
 
 
@@ -28,6 +28,20 @@ body{
 
 #select-board {
     margin-top: 7px;
+}
+ button {
+    height: 40px;
+    width: 90px;
+    font-size: 1em;
+    font-family: 'Ubuntu Condensed', sans-serif;
+    border-radius: 5%;
+    background-color: dodgerblue;
+    border: 1px solid dodgerblue;
+     margin: 2% auto 5%;
+     padding: 15px 0;
+
+
+
 }
 
 #cell-area {
@@ -64,22 +78,22 @@ body{
 
 
 .square {
-    color: white;
     border: 1px;
 }
 
 .header {
-    font-size: 2em;
+    font-size: 1em;
     font-family: 'Ubuntu Condensed', sans-serif;
     text-align: center;
 
 
 }
 
+
 .player_divs {
     font-size: 2em;
     font-family: 'Ubuntu Condensed', sans-serif;
-    margin: 10px;
+
 
 }
 .player1{
