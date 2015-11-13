@@ -1,13 +1,10 @@
 body {
-    background-image: url("images/background.png");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    background-size: 55% auto;
-    background-color: #000;
-    color: #fff;
+    position: fixed;
+    color: #000;
 }
-
+.col-md-2{
+    text-align: center;
+}
 h1 {
     color: black;
 }
@@ -15,7 +12,9 @@ h1 {
 .header {
 
 }
-
+image{
+    position: absolute;
+}
 #game-board {
 
     width: 44vw;
@@ -42,6 +41,21 @@ h1 {
 
 
 
+}
+ .brick {
+     background-image: url("http://thumbs.dreamstime.com/t/red-brick-wall-vector-illustration-background-texture-pattern-51543695.jpg");
+     width: 1500px;
+     height: 455px;
+ }
+ .floor{
+     width: 1500px;
+     height: 500px;
+     background-image: url("https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQ0pEs7Ni7pc6D6LG38yqypfHNLKqQ0p4FWwb-UQvm2mjzhd447");
+
+ }
+.well{
+    height: 50vh;
+    opacity: .4;
 }
 
 #cell-area {

@@ -9,59 +9,93 @@
     <title>TTT-Game</title>
 
     <link href="ttt_game.css" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link href='https://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <!--<link href='https://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>-->
     <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
     <script src="tictactoe.js"></script>
 
-
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
 </head>
 
 
-<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
-<div class="header">
-    <h3 id="display_results"></h3>
-    <h1 style="color: #fff;" >TicTacToe LearningFuze Style</h1>
+<body>
 
-</div>
 
-<div class="player_divs" style="display: inline-block;">
-    <div style="display: inline-block; margin-left:210px;">
-        Player One: Dan
+    <div>
+        <div class="brick">
+            <div class="row">
+                <div class="col-md-12 header">
+                    <h1>Tic Tac Toe Learning Fuze Style</h1>
+                </div>
+            </div>
+            <div class="row">
+            <div class="col-md-2 well"><h3>Player 1</h3></div>
+            <div class="col-xs-12 col-md-8">
+                <img width="100%" style="margin-top: 30px; " src="images/background.png"></div>
+            <div class="col-md-2 well"><h3>Player 2</h3></div>
+            </div>
+        </div>
     </div>
     <div>
-        <img class="Dan_though1" width="250px" style="margin-left:210px; " src="images/Dan_thought1.png">
-
-    </div>
-</div>
-    <div class="player_divs" style="float: right; display: inline-block;">
-     <div style="float: right; margin-right:200px;">
-        Player Two: Eric
-    </div>
-        <div>
-            <img class="Eric_thought1" width="200px" style="float: right; margin-right:200px; " src="images/Eric_though1.png">
+        <div class="floor">
+            <img width="460px" style="position: absolute; top: 300px; left: -22px" src="images/instructors_img.png">
+            <img width="340px" style="position: absolute; top: 550px; right: -10px" src="images/bill.png">
         </div>
-</div>
-<div style="display: inline-block; width: 25%; height: 350px; background-color: white; position: absolute; left:0; bottom:0;border-radius: 100% ">
-    <img width="330px" style="margin:60px 30px;" src="images/instructors_img.png">
-    <h3 style="color:#000; margin:-20px 110px;">Other Players</h3>
-</div>
-<div style="display: inline-block; width: 20%; height: 300px; background-color: white; position: fixed; right:0; bottom:0;border-radius: 100% ">
-    <h3 style="color:#000; display: inline-block; margin:60px 40px;">Anyone seen Fabian?</h3>
-    <img width="250px" style="margin:-80px 25px; display: inline-block;" src="images/bill.png">
-</div>
-
-<div id="game-board">
-<div id="cell-area"></div>
-
-    <div id="select-board">
-        <strong>Select Level</strong><br>
-        <button id="3">Easy</button>
-        <button id="4">Not So Easy</button>
     </div>
-</div>
+
+
+    <!--<div>-->
+        <!--<div class="row">-->
+            <!--<div class="col-md-2">Player 1</div>-->
+            <!--<div class="col-xs-12 col-md-8"><img width="100%" src="images/background.png"></div>-->
+            <!--<div class="col-md-2 floor">Player 2</div>-->
+        <!--</div>-->
+    <!--</div>-->
+
+
+
+
+
+<!--<div class="header">-->
+    <!--<h3 id="display_results"></h3>-->
+    <!--<h1 style="color: #fff;" >TicTacToe LearningFuze Style</h1>-->
+
+<!--</div>-->
+
+<!--<div class="player_divs" style="display: inline-block;">-->
+    <!--<div style="display: inline-block; margin-left:210px;">-->
+        <!--Player One: Dan-->
+    <!--</div>-->
+    <!--<div>-->
+        <!--<img class="Dan_though1" width="250px" style="margin-left:210px; " src="images/Dan_thought1.png">-->
+
+    <!--</div>-->
+<!--</div>-->
+    <!--<div class="player_divs" style="float: right; display: inline-block;">-->
+     <!--<div style="float: right; margin-right:200px;">-->
+        <!--Player Two: Eric-->
+    <!--</div>-->
+        <!--<div>-->
+            <!--<img class="Eric_thought1" width="200px" style="float: right; margin-right:200px; " src="images/Eric_though1.png">-->
+        <!--</div>-->
+<!--</div>-->
+<!--<div style="display: inline-block; width: 25%; height: 350px; background-color: white; position: absolute; left:0; bottom:0;border-radius: 100% ">-->
+    <!--<img width="330px" style="margin:60px 30px;" src="images/instructors_img.png">-->
+    <!--<h3 style="color:#000; margin:-20px 110px;">Other Players</h3>-->
+<!--</div>-->
+<!--<div style="display: inline-block; width: 20%; height: 300px; background-color: white; position: fixed; right:0; bottom:0;border-radius: 100% ">-->
+    <!--<h3 style="color:#000; display: inline-block; margin:60px 40px;">Anyone seen Fabian?</h3>-->
+    <!--<img width="250px" style="margin:-80px 25px; display: inline-block;" src="images/bill.png">-->
+<!--</div>-->
+
+<!--<div id="game-board">-->
+<!--<div id="cell-area"></div>-->
+
+    <!--<div id="select-board">-->
+        <!--<strong>Select Level</strong><br>-->
+        <!--<button id="3">Easy</button>-->
+        <!--<button id="4">Not So Easy</button>-->
+    <!--</div>-->
+<!--</div>-->
 </body>
 
 </html>
