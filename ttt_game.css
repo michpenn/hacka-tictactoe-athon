@@ -1,17 +1,20 @@
 body {
-    background-image: url("images/bg_image2.jpg");
+    background-image: url("images/background.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-    background-size: 69% auto;
+    background-size: 55% auto;
+    background-color: #000;
+    color: #fff;
 }
 
-.header {
-
+h1 {
+    color: black;
 }
+
 
 #game-board {
-    border: 2px solid red;
+
     width: 44vw;
     height: 68vh;
     position: fixed;
@@ -23,9 +26,23 @@ body {
 #select-board {
     margin-top: 7px;
 }
+ button {
+    height: 40px;
+    width: 90px;
+    font-size: 1em;
+    font-family: 'Ubuntu Condensed', sans-serif;
+    border-radius: 5%;
+    background-color: dodgerblue;
+    border: 1px solid dodgerblue;
+     margin: 2% auto 5%;
+     padding: 15px 0;
+
+
+
+}
 
 #cell-area {
-    border: 2px solid green;
+
     width: 95%;
     height: 75%;
     margin: 14% auto 0;
@@ -46,35 +63,35 @@ body {
     height: 100%;
     top: 0;
     left: 0;
-    /*visibility: hidden;*/
 }
 
-
-.card-container {
-    width: 25%;
-    position: relative;
-    display: inline-block;
-    border: solid black 1px;
-
+.player1 {
+    visibility: hidden;
 }
+
+.player2 {
+    visibility: hidden;
+}
+
 
 .square {
-    color: white;
     border: 1px;
+    color: transparent;
 }
 
 .header {
-    font-size: 2em;
+    font-size: 1em;
     font-family: 'Ubuntu Condensed', sans-serif;
     text-align: center;
 
 
 }
 
+
 .player_divs {
     font-size: 2em;
     font-family: 'Ubuntu Condensed', sans-serif;
-    margin: 10px;
+
 
 }
 .player1{
@@ -82,4 +99,13 @@ body {
 }
 .player2{
     visibility: hidden;
+}
+
+.selected {
+
+}
+
+#display_results {
+    color: grey;
+    opacity: 0;
 }
