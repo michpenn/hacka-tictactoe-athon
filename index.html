@@ -13,34 +13,38 @@
     <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
     <script src="tictactoe.js"></script>
 
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 
 <body>
 
 
-    <div>
-        <div class="brick">
+        <div class="container">
             <div class="row">
-                <div class="col-md-12 header">
+                <div class="col-md-12 header brick">
                     <h1>Tic Tac Toe Learning Fuze Style</h1>
                 </div>
             </div>
-            <div class="row">
-            <div class="col-md-2 well"><h3>Player 1</h3></div>
-            <div class="col-xs-12 col-md-8">
-                <img width="100%" style="margin-top: 30px; " src="images/background.png"></div>
-            <div class="col-md-2 well"><h3>Player 2</h3></div>
+            <div class="row brick">
+                <div class="col-xs-10 col-md-8">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-4"><img height="250vh" src="images/background.png"></div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <div>
-        <div class="floor">
-            <img width="460px" style="position: absolute; top: 300px; left: -22px" src="images/instructors_img.png">
-            <img width="340px" style="position: absolute; top: 550px; right: -10px" src="images/bill.png">
-        </div>
-    </div>
+            <div class="floor row">
+                <div class="col-xs-1 col-md-2 well"><h3>Player 1</h3></div>
+                <div class="col-xs-10 col-md-8 computer">
+                    <div class="col-xs-1 col-md-2 well"><h3>Player 1</h3></div>
+                    <div class="game"><div>
+                    </div>
+                </div>
+              </div>
+            </div>
+
+
+
 
 
     <!--<div>-->
@@ -87,15 +91,6 @@
     <!--<img width="250px" style="margin:-80px 25px; display: inline-block;" src="images/bill.png">-->
 <!--</div>-->
 
-<!--<div id="game-board">-->
-<!--<div id="cell-area"></div>-->
-
-    <!--<div id="select-board">-->
-        <!--<strong>Select Level</strong><br>-->
-        <!--<button id="3">Easy</button>-->
-        <!--<button id="4">Not So Easy</button>-->
-    <!--</div>-->
-<!--</div>-->
 </body>
 
 </html>

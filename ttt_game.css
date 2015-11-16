@@ -1,20 +1,14 @@
-body {
-    position: fixed;
-    color: #000;
-}
-.col-md-2{
+
+
+.col-md-2 {
     text-align: center;
 }
+
 h1 {
     color: black;
 }
 
-.header {
 
-}
-image{
-    position: absolute;
-}
 #game-board {
 
     width: 44vw;
@@ -28,33 +22,32 @@ image{
 #select-board {
     margin-top: 7px;
 }
- button {
-    height: 40px;
+
+button {
+    height: 50px;
     width: 90px;
     font-size: 1em;
     font-family: 'Ubuntu Condensed', sans-serif;
     border-radius: 5%;
-    background-color: dodgerblue;
-    border: 1px solid dodgerblue;
-     margin: 2% auto 5%;
-     padding: 15px 0;
+    background-color: #000;
+    border: 1px solid #000;
+    margin: 2% auto 5%;
+    padding: 15px 0;
+}
 
-
+.brick {
+    background-image: url("http://thumbs.dreamstime.com/t/red-brick-wall-vector-illustration-background-texture-pattern-51543695.jpg");
 
 }
- .brick {
-     background-image: url("http://thumbs.dreamstime.com/t/red-brick-wall-vector-illustration-background-texture-pattern-51543695.jpg");
-     width: 1500px;
-     height: 455px;
- }
- .floor{
-     width: 1500px;
-     height: 500px;
-     background-image: url("https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQ0pEs7Ni7pc6D6LG38yqypfHNLKqQ0p4FWwb-UQvm2mjzhd447");
 
- }
-.well{
-    height: 50vh;
+.floor {
+
+    background-image: url("https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTECD5QNPXxtgx9VucM51m3fIT8zWKaZys1irdhF1DL_nAYFhmhGA");
+
+}
+
+.well {
+    height: 30vh;
     opacity: .4;
 }
 
@@ -90,7 +83,6 @@ image{
     visibility: hidden;
 }
 
-
 .square {
     border: 1px;
 }
@@ -100,27 +92,32 @@ image{
     font-family: 'Ubuntu Condensed', sans-serif;
     text-align: center;
 
-
 }
-
 
 .player_divs {
     font-size: 2em;
     font-family: 'Ubuntu Condensed', sans-serif;
 
+}
 
-}
-.player1{
-    visibility: hidden;
-}
-.player2{
+.player1 {
     visibility: hidden;
 }
 
-.selected {
-
+.player2 {
+    visibility: hidden;
 }
 
+.computer {
+    height: 60vh;
+    background-image: url("images/computer.png");
+    background-size: cover;
+}
+.board{
+    height: 40vh;
+    background-color: #fff;
+    border: 2px solid #000;
+}
 #display_results {
     color: grey;
     opacity: 0;
