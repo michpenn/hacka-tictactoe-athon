@@ -139,6 +139,10 @@ button {
     padding: 15px 0;
 }
 
+audio {
+    visibility: hidden;
+}
+
 /* remove game board's surrounding divs @ smaller than 1000px */
 @media only screen and (max-width: 1000px) {
     #player1_div, #player2_div, #others, #bill {
