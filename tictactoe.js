@@ -17,7 +17,7 @@ var cell_array = [];
 
 $(document).ready(function () {
     $("button").click(function () {
-        $("#select-board").css("visibility", "hidden");
+        $("#select-level").css("visibility", "hidden");
 
         // get cell_row number (3 or 4, depending on level selected)
         var cell_row = $(this).attr("id");
@@ -122,16 +122,16 @@ function Board() {
     //appends to game board with winner result
     this.display_results = function (player) {  // *** 4 (game won / finished)
         if (player === 1) {
-            var h1 = $('<h1>').text("Player 1 Wins!");
-            $('#display_results').append(h1);
-            $('#display_results').css("opacity","1");
-            $('#cell-area').replaceWith("<img src='images/dan_win.png'>")
+            var p1_h2 = $("<h2>").text("Player 1 Wins!");
+            var p1_img = $("<img src='images/dan_win.png'>");
+            $('#game-board').empty();
+            $('#game-board').append(p1_h2, p1_img);
         }
         else if (player === 2) {
-            var h1 = $('<h1>').text("Player 2 Wins!");
-            $('#display_results').append(h1);
-            $('#display_results').css("opacity","1");
-            $('#cell-area').replaceWith("<img src='images/eric_win.png'>")
+            var p2_h2 = $("<h2>").text("Player 2 Wins!");
+            var p2_img = $("<img src='images/eric_win.png'>");
+            $('#game-board').empty();
+            $('#game-board').append(p2_h2, p2_img);
         }
     };
 

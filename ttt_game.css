@@ -1,11 +1,8 @@
 body {
-    background-image: url("images/background.png");
-    background-repeat: no-repeat;
-    background-position: center top;
+    background: #000 url("images/background.png") center top no-repeat;
     background-size: 900px 700px;
-    background-color: #000;
-    color: #fff;
     font-family: 'Ubuntu Condensed', sans-serif;
+    color: #fff;
 }
 
 .header {
@@ -15,7 +12,6 @@ body {
     color: lightgreen;
     display: inline-block;
     margin-top: 0;
-    border: 1px solid lightblue;
 }
 #display_results {
     color: grey;
@@ -66,36 +62,39 @@ body {
 }
 #bill img {
     width: 180px;
+    height: 150px;
 }
 #bill h3 {
     position: relative;
     top: 30px;
 }
 
-
 /*******  game board elements ********/
 #game-board {
-    width: 44vw;
-    height: 68vh;
+    width: 500px;
+    height: 440px;
     position: relative;
-    left: 28%;
-    top: 20vh;
+    margin: auto;
+    top: 180px;
     text-align: center;
-    border: 1px solid lightgreen;
+    color: grey;
+}
+#game-board > img {
+    height: 75%;
 }
 #cell-area {
-    width: 600px;
-    height: 400px;
-    margin: 12% auto 0;
-    padding: 10px 0;
-    border: 1px solid orange;
+    width: 100%;
+    height: 80%;
+    padding-top: 20px;
+    text-align: center;
 }
 #cell-area > div {
     display: inline-block;
+    position: relative;
     width: 19%;
     height: 19%;
-    border: 2px solid black;
-    position: relative;
+    border: 1px solid rgba(255, 0, 0, .7);
+    border-radius: 3px;
 }
 .square {
     border: 1px;
@@ -114,8 +113,8 @@ body {
 .player2 {
     visibility: hidden;
 }
-#select-board {
-    margin-top: -110px;
+#select-level {
+    text-align: center;
 }
 button {
     height: 40px;
@@ -134,9 +133,13 @@ audio {
     top: 0;
     right: 0;
     width: 250px;
- }
+    opacity: 0.6;
+}
+audio:hover {
+    opacity: 1;
+}
 
-/* remove game board's surrounding divs @ smaller than 1000px */
+/* remove game board's surrounding div elements @ smaller than 1000px */
 @media only screen and (max-width: 1000px) {
     #player1_div, #player2_div, #others, #bill {
         display: none;
@@ -149,23 +152,23 @@ audio {
         background-size: 600px 500px;
     }
     #game-board {
-        width: 400px;
-        height: 400px;
-        position: relative;
-        left: auto;
-        top: auto;
-        margin: auto;
+        width: 350px;
+        height: 300px;
+        top: 110px;
     }
     #cell-area {
         width: 300px;
-        height: 305px;
-        margin: 252px auto 0;
+        height: 270px;
+        margin: auto;
     }
     #cell-area > div {
         width: 30%;
-        height: 15%;
+        height: 21%;
     }
-    #select-board button:last-child {
+    #select-level button:last-child {
         display: none;
+    }
+    audio {
+        width: 50%;
     }
 }

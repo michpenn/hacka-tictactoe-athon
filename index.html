@@ -2,47 +2,41 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <title>TTT-Game</title>
-
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link href='https://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
     <link href="ttt_game.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
     <script src="tictactoe.js"></script>
-
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
-
-    <div class="header" style="border:1px solid grey">
+    <div class="header">
         <h3>TicTacToe<br>
             LearningFuze Style</h3>
         <audio controls autoplay>
             <source src="audio/new_age1.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
-        <h3 id="display_results"></h3>
     </div>
 
-    <div id="player1_div" style="border:1px solid grey">
+    <div id="player1_div">
         <div>Player One: Dan</div>
         <div><img class="Dan_though1" width="250px" src="images/Dan_thought1.png"></div>
     </div>
-    <div id="player2_div" style="border:1px solid grey">
+    <div id="player2_div">
         <div>Player Two: Eric</div>
         <div><img class="Eric_thought1" width="200px" src="images/Eric_though1.png"></div>
     </div>
 
-    <div id="others" style="border:1px solid grey">
+    <div id="others">
         <img width="330px" src="images/instructors_img.png">
         <h3>Other Players</h3>
     </div>
-    <div id="bill" style="border:1px solid grey">
+    <div id="bill">
         <h3 style="">Anyone seen Fabian?</h3>
         <img width="250px" src="images/bill.png">
     </div>
@@ -52,15 +46,12 @@
             <!-- game's square cells are dynamically created here -->
         </div>
 
-        <div id="select-board">
+        <div id="select-level">
             <strong>Select Level</strong><br>
             <button id="3">Easy</button>
             <button id="4">Not So Easy</button>
         </div>
     </div>
-
-
-
 </body>
 </html>
 
