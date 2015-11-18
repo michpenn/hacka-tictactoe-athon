@@ -19,31 +19,38 @@
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
-    <div class="header">
-        <h1>TicTacToe LearningFuze Style</h1>
+    <div class="header" style="border:1px solid grey">
+        <h3>TicTacToe<br>
+            LearningFuze Style</h3>
+        <audio controls autoplay>
+            <source src="audio/new_age1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
         <h3 id="display_results"></h3>
     </div>
 
-    <div id="player1_div">
+    <div id="player1_div" style="border:1px solid grey">
         <div>Player One: Dan</div>
         <div><img class="Dan_though1" width="250px" src="images/Dan_thought1.png"></div>
     </div>
-    <div id="player2_div">
+    <div id="player2_div" style="border:1px solid grey">
         <div>Player Two: Eric</div>
         <div><img class="Eric_thought1" width="200px" src="images/Eric_though1.png"></div>
     </div>
 
-    <div id="others">
+    <div id="others" style="border:1px solid grey">
         <img width="330px" src="images/instructors_img.png">
         <h3>Other Players</h3>
     </div>
-    <div id="bill">
+    <div id="bill" style="border:1px solid grey">
         <h3 style="">Anyone seen Fabian?</h3>
         <img width="250px" src="images/bill.png">
     </div>
 
     <div id="game-board">
-        <div id="cell-area"></div>
+        <div id="cell-area">
+            <!-- game's square cells are dynamically created here -->
+        </div>
 
         <div id="select-board">
             <strong>Select Level</strong><br>
@@ -52,10 +59,7 @@
         </div>
     </div>
 
-    <audio controls autoplay>
-        <source src="audio/new_age1.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
+
 
 </body>
 </html>

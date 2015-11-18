@@ -1,20 +1,21 @@
 body {
     background-image: url("images/background.png");
     background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    background-size: 900px auto;
+    background-position: center top;
+    background-size: 900px 700px;
     background-color: #000;
     color: #fff;
+    font-family: 'Ubuntu Condensed', sans-serif;
 }
 
 .header {
-    font-size: 1em;
-    font-family: 'Ubuntu Condensed', sans-serif;
-    text-align: center;
+    height: 50px;
 }
-.header h1 {
-    color: lightgrey;
+.header > h3 {
+    color: lightgreen;
+    display: inline-block;
+    margin-top: 0;
+    border: 1px solid lightblue;
 }
 #display_results {
     color: grey;
@@ -23,82 +24,71 @@ body {
 
 /* upper Player 1,2 images css */
 #player1_div, #player2_div {
-    font-size: 2em;
-    font-family: 'Ubuntu Condensed', sans-serif;
     display: inline-block;
+    width: 300px;
+    height: 200px;
+    text-align: center;
+    font-size: 1.5em;
+    color: orange;
 }
-#player1_div > div:first-child {
-    display: inline-block;
-    margin-left: 210px;
-}
-#player1_div > div:last-child {
-    margin-left: 210px;
+#player1_div {
+    float: left;
 }
 #player2_div {
     float: right;
-    display: inline-block;
-}
-#player2_div > div:first-child {
-    float: right;
-    margin-right: 200px;
-}
-#player2_div > div:last-child img {
-    float: right;
-    margin-right: 200px;
+    vertical-align: top;
 }
 
 /* lower Others & Bill images css */
-#others {
+#others, #bill {
     display: inline-block;
-    width: 25%;
-    height: 350px;
+    text-align: center;
+    color: black;
+}
+#others {
+    width: 240px;
+    float: left;
+    clear: left;
+    margin-top: 150px;
     background-color: white;
-    position: absolute;
-    left:0;
-    bottom:0;
-    border-radius: 100%
-}
-#others img {
-    margin: 60px 30px;
-}
-#others h3 {
-    color: #000;
-    margin: -20px 110px;
+    border-radius: 80%;
 }
 #bill {
-    display: inline-block;
-    width: 20%;
-    height: 300px;
+    width: 200px;
+    float: right;
+    clear: right;
+    margin-top: 100px;
     background-color: white;
-    position: fixed;
-    right:0;
-    bottom:0;
     border-radius: 100%;
 }
-#bill h3 {
-    color:#000;
-    display: inline-block;
-    margin:60px 40px;
+#others img {
+    width: 240px;
 }
 #bill img {
-    margin: -80px 25px;
-    display: inline-block;
+    width: 180px;
 }
+#bill h3 {
+    position: relative;
+    top: 30px;
+}
+
 
 /*******  game board elements ********/
 #game-board {
     width: 44vw;
     height: 68vh;
-    position: fixed;
+    position: relative;
     left: 28%;
     top: 20vh;
     text-align: center;
+    border: 1px solid lightgreen;
 }
 #cell-area {
     width: 600px;
     height: 400px;
     margin: 12% auto 0;
     padding: 10px 0;
+    border: 1px solid orange;
 }
 #cell-area > div {
     display: inline-block;
@@ -142,7 +132,8 @@ button {
 audio {
     position: absolute;
     top: 0;
-    left: 0;
+    right: 0;
+    width: 250px;
  }
 
 /* remove game board's surrounding divs @ smaller than 1000px */
