@@ -1,93 +1,61 @@
-var wins = [ 7, 56, 448, 73, 146, 292, 273, 84];
-var player1 =true;
-var player2=false;
-//makes new game/board
-var ttt_game = new Board();
+var wins = [7, 56, 448, 73, 146, 292, 273, 84];
+var player1 = true;
+var player2 = false;
 
+//make new board
+var ttt_game = null;
 
-function Board() {
-    this.available_squares = 9;
-
-//loops through wins array, compares player scores with winning scores
-    this.wins = function () {
-        for (var i = 0; i < wins.length; i++) {
-            if ((wins[i] & this.total_player1[0]) === wins[i]) {
-                console.log("player 1 wins");
-                this.display_results("player 1 wins");
-
-            }
-            else if ((wins[i] & this.total_player2[0]) === wins[i]) {
-                this.display_results("player 2 wins");
-            }
-            else if(this.available_squares =0){
-                this.display_results('Its a Tie');
-            }
-        }
+//Board constructor (this is the board game area with #game-board)
+function Board(game_board_element){
+    var self = this;
+    //game_board_element = #game-board
+    self.game_board_element = game_board_element;
+    self.available_squares = 9;
+    //araay for square objects
+    self.game_squares = [];
+    //uses parametar to find the class game-square to make objects out of each square
+    self.init = function(){
+        console.log('initializing board creation',game_board_element);
+        self.game_board_element.find('.orange').each(function(){
+            console.log('making square based on ',this);
+            var square = self.make_square($(this));
+            self.game_squares.push(square);
+        })
     };
-    //appends to game board with winner result
-    this.display_results = function (player) {
-        var h3 = $('<h3>').text(player);
-        $('.display_results').append(h3);
-
+    //makes a square object this gets pushed into the array
+    self.make_square = function(target_element){
+        console.log('in make_square()',target_element);
+        var this_square = new square_template(target_element);
+        return this_square;
     };
+    self.init();
+}
 
-//changes player
-    this.change_player = function () {
-        if (player1 === true) {
-            player1 = false;
-            player2 = true;
-        }
-        else {
-            player1 = true;
-            player2 = false;
-        }
+//this is the object for the tic tac toe game
+var square_template =function(this_element){
+    console.log("creating a square based on ",this_element);
+    var self = this;
+    self.target_element = this_element;
+    self.value = null;
+    self.init = function(){
+        console.log('stuff! ',self.target_element.attr('value'));
+        self.value = self.target_element.attr('value');
+        self.target_element.click(function(){
+            //why isnt this a boolean.. what is self.clicked doing?
+            self.clicked();
+        })
+        return self;
     };
-//records score beginning at zero index
-    this.total_player1 = [0];
-    this.total_player2 = [0];
-
-    this.square_clicked = function (square) {
-        var total = 0;
-        if (player1) {
-            total += parseFloat(square);
-            var new_total1 = this.total_player1[0] + total;
-            this.total_player1.pop();
-            this.total_player1.push(new_total1);
-        }
-        else {
-            total += parseFloat(square);
-            var new_total2 = this.total_player2[0] + total;
-            this.total_player2.pop();
-            this.total_player2.push(new_total2);
-        }
-        this.wins();
+    self.clicked = function(){
+        console.log("my value is ", self.value);
     }
+    self.init();
 
-};
+}
 
-$(document).ready(function(){
-    ttt_game.available_square = 9;
-    console.log(ttt_game.available_squares);
-    $('.orange').on('click', function () {
-        var square = $(this);
-        var square_value = $(this).attr('value');
-        ttt_game.square_clicked(square_value);
-        if(player1 && square.is(':empty')){
-            var img = $('<img>').attr('src','images/coffeeO.png').css('width','50%').addClass('center-block');
-            $(this).append(img);
-            ttt_game.available_squares--;
-            console.log(ttt_game.available_squares)
-        }
-        else if(player2 && square.is(':empty')){
-            var img = $('<img>').attr('src','images/markersX.png').css('width','50%').addClass('center-block');
-            $(this).append(img);
-            ttt_game.available_squares--;
-            console.log(ttt_game.available_squares)
-        }
-        else{
-            alert('pick an empty square');
-            console.log(ttt_game.available_squares)
-        }
-        ttt_game.change_player();
-    })
-});
+$(document).ready( function(){
+
+    console.log('hi', ttt_game);
+
+    ttt_game = new Board($("#game-board"));
+})
