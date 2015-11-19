@@ -9,8 +9,6 @@
     <title>TTT-Game</title>
 
     <link href="ttt_game.css" rel="stylesheet">
-    <!--<link href='https://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>-->
-
 
     <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
     <script src="tictactoe.js"></script>
@@ -30,27 +28,27 @@
                 </div>
             </div>
             <div class="row brick">
-                    <div class="col-xs-4 col-md-2 well"><h3>Player 1</h3><p></p></div>
+                    <div class="col-xs-4 col-md-2 thought_bubble_container"><img src="images/Dan_thought1.png"></div>
                     <div class="col-xs-4 col-md-8">
                         <div class="col-md-3"><img class="dan" src="images/dan.png"></div>
                         <div class="col-md-6"><img class="white_board" src="images/board.png"><button class="play_again">Play Again</button></div>
                         <div class="col-md-3"><img class="eric" src="images/eric.png"></div>
                     </div>
-                    <div class="col-xs-4 col-md-2 well"><h3>Player 2</h3><p></p></div>
+                    <div class="col-xs-4 col-md-2 thought_bubble_container"><img src="images/Eric_though1.png"></div>
                 </div>
             </div>
             <div class="floor row">
-                <div id="game-board" class="col-xs-12 hotpink col-md-offset-2 col-md-8 computer display_results">
-                        <div class="row green">
-                            <div class="col-xs-3 orange col-xs-offset-1" value="1"></div>
-                            <div class="col-xs-3 orange" value="2"></div>
-                            <div class="col-xs-3 orange" value="4"></div>
-                            <div class="col-xs-3 orange col-xs-offset-1" value="8"></div>
-                            <div class="col-xs-3 orange" value="16"></div>
-                            <div class="col-xs-3 orange" value="32"></div>
-                            <div class="col-xs-3 orange col-xs-offset-1" value="64"></div>
-                            <div class="col-xs-3 orange" value="128"></div>
-                            <div class="col-xs-3 orange" value="256"></div>
+                <div id="game-board" class="col-xs-12 col-md-offset-2 col-md-8 computer display_results">
+                        <div class="row">
+                            <div class="col-xs-3 square col-xs-offset-1" value="1"></div>
+                            <div class="col-xs-3 square" value="2"></div>
+                            <div class="col-xs-3 square" value="4"></div>
+                            <div class="col-xs-3 square col-xs-offset-1" value="8"></div>
+                            <div class="col-xs-3 square" value="16"></div>
+                            <div class="col-xs-3 square" value="32"></div>
+                            <div class="col-xs-3 square col-xs-offset-1" value="64"></div>
+                            <div class="col-xs-3 square" value="128"></div>
+                            <div class="col-xs-3 square" value="256"></div>
                             </div>
 
                 </div>

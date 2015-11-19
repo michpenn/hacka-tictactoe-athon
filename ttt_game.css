@@ -4,15 +4,6 @@
 h1 {
     color: black;
 }
-/*#game-board {*/
-
-    /*width: 44vw;*/
-    /*height: 68vh;*/
-    /*position: fixed;*/
-    /*left: 28%;*/
-    /*top: 20vh;*/
-    /*text-align: center;*/
-/*}*/
 #select-board {
     margin-top: 7px;
 }
@@ -26,10 +17,12 @@ h1 {
     background-image: url("https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTECD5QNPXxtgx9VucM51m3fIT8zWKaZys1irdhF1DL_nAYFhmhGA");
 }
 
-.well {
-    height: 30vh;
-    opacity: .7;
-    color: black;
+.thought_bubble_container {
+    height: 20vh;
+}
+.thought_bubble_container img {
+    width: 30vh;
+    margin-top: -60px;
 }
 
 .header {
@@ -67,8 +60,13 @@ h1 {
     border: 2px dashed #fff;
     margin-top: 3%;
 }
-
-.orange {
+.board_img{
+    width: 100px;
+}
+.avatar_img{
+    width: 300px;
+}
+.square {
     background-color: #000;
     height: 17vh;
     margin:1%;
