@@ -53,13 +53,7 @@ $(document).ready(function () {
             var square = $(this).text();
             justclicked=this;
                 ttt_game.square_clicked(square);  // *** 1
-            /*(function() {
-                if ($(this).find("img src").length > 0) {
-                    console.log('pic');
-                } else {
-                    console.log('there is no pic');
-                }
-            })();*/
+
             if (justclicked["childElementCount"]==0) {
                 if (player1) {
                     $(this).append("<img src='images/coffeeO.png'>");
@@ -159,7 +153,7 @@ $(document).ready(function () {
         }
     };
 
-    makeCellLabels(cell_row);
+    //makeCellLabels(cell_row);
 
     function generateWins(cellvalues) {
         var rowStartMarker = 0;
