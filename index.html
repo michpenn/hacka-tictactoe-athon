@@ -9,59 +9,51 @@
     <title>TTT-Game</title>
 
     <link href="ttt_game.css" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link href='https://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
     <script src="https://code.jquery.com/jquery-2.1.4.js"></script>
     <script src="tictactoe.js"></script>
-
+    <link href='https://fonts.googleapis.com/css?family=Sigmar+One' rel='stylesheet' type='text/css'>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 
 </head>
 
 
-<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
-<div class="header">
-    <h3 id="display_results"></h3>
-    <h1 style="color: #fff;" >TicTacToe LearningFuze Style</h1>
+<body>
 
-</div>
 
-<div class="player_divs" style="display: inline-block;">
-    <div style="display: inline-block; margin-left:210px;">
-        Player One: Dan
-    </div>
-    <div>
-        <img class="Dan_though1" width="250px" style="margin-left:210px; " src="images/Dan_thought1.png">
 
-    </div>
-</div>
-    <div class="player_divs" style="float: right; display: inline-block;">
-     <div style="float: right; margin-right:200px;">
-        Player Two: Eric
-    </div>
-        <div>
-            <img class="Eric_thought1" width="200px" style="float: right; margin-right:200px; " src="images/Eric_though1.png">
-        </div>
-</div>
-<div style="display: inline-block; width: 25%; height: 350px; background-color: white; position: absolute; left:0; bottom:0;border-radius: 100% ">
-    <img width="330px" style="margin:60px 30px;" src="images/instructors_img.png">
-    <h3 style="color:#000; margin:-20px 110px;">Other Players</h3>
-</div>
-<div style="display: inline-block; width: 20%; height: 300px; background-color: white; position: fixed; right:0; bottom:0;border-radius: 100% ">
-    <h3 style="color:#000; display: inline-block; margin:60px 40px;">Anyone seen Fabian?</h3>
-    <img width="250px" style="margin:-80px 25px; display: inline-block;" src="images/bill.png">
-</div>
+            <div class="row brick">
+                <div class="col-md-12 header brick">
+                    <h1>Tic Tac Toe Learning Fuze Style</h1>
+                </div>
+            </div>
+            <div class="row brick">
+                    <div class="col-xs-4 col-md-2 thought_bubble_container"><img class="player1" src="images/Dan_thought1.png"></div>
+                    <div class="col-xs-4 col-md-8">
+                        <div class="col-md-3"><img class="dan" src="images/dan.png"></div>
+                        <div class="col-md-6"><img class="white_board" src="images/board.png"><button class="play_again">Play Again</button></div>
+                        <div class="col-md-3"><img class="eric" src="images/eric.png"></div>
+                    </div>
+                    <div class="col-xs-4 col-md-2 thought_bubble_container"><img class="player2" src="images/Eric_thought1.png"></div>
+                </div>
+            </div>
+            <div class="floor row">
+                <div id="game-board" class="col-xs-12 col-md-offset-2 col-md-8 computer display_results">
+                        <div class="row">
+                            <div class="col-xs-3 square col-xs-offset-1" value="1"></div>
+                            <div class="col-xs-3 square" value="2"></div>
+                            <div class="col-xs-3 square" value="4"></div>
+                            <div class="col-xs-3 square col-xs-offset-1" value="8"></div>
+                            <div class="col-xs-3 square" value="16"></div>
+                            <div class="col-xs-3 square" value="32"></div>
+                            <div class="col-xs-3 square col-xs-offset-1" value="64"></div>
+                            <div class="col-xs-3 square" value="128"></div>
+                            <div class="col-xs-3 square" value="256"></div>
+                            </div>
 
-<div id="game-board">
-<div id="cell-area"></div>
+                </div>
+              </div>
 
-    <div id="select-board">
-        <strong>Select Level</strong><br>
-        <button id="3">Easy</button>
-        <button id="4">Not So Easy</button>
-    </div>
-</div>
 </body>
 
 </html>

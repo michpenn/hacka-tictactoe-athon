@@ -1,221 +1,256 @@
-/**
- * Created by michpenn on 11/4/15.
- */
-var celllabel;
-var cellvalues = [];
-var cellRows = [];
-var cellColumns = [];
-var cellDiagonals = [];
-var winningArrays = [];
-var wins = [];
-var NumberOfRows;
-var player1 = true;
-var player2 = false;
+var wins = [7, 56, 448, 73, 146, 292, 273, 84];
+//make new board
+var ttt_game = null;
 
-var justclicked;
-var cell_row = 0;
-var cell_full = 0;
-var cell_array = [];
-var b = 0;
-var newDiv;
-var targetSquare;
-
-$(document).ready(function () {
-    $("button").click(function () {
-
-        // assign selected cell size to cell_row(3) and get full size cell numbers (3x3 = 9)
-        cell_row = $(this).attr("id");
-        cell_full = (cell_row * cell_row);
-        makeCellLabels(parseInt(cell_row));
-        generateWins(cellvalues);
-
-        // create an array matching the cell_full_size and assign its numbers
-        for (b; b < cell_full; b++) {
-            cell_array[b] = b;
+//Board constructor (this is the board game area with #game-board)
+function Board(game_board_element) {
+    var self = this;
+    //game_board_element = #game-board
+    self.game_board_element = game_board_element;
+    self.available_squares = 9;
+    //array for square objects
+    self.game_squares = [];
+    self.players = [];
+    self.current_player = 0;
+    //uses parametar to find the class game-square to make objects out of each square
+    self.add_player = function (avatar_name) {
+        if (self.players.length < 2) {
+            var player = new player_template(player_avatar_specs[avatar_name]);
+            self.players.push(player);
         }
 
-        // append cells to HTML, break to next line according to cell_row #
-        for (b = 1; b < cell_array.length + 1; b++) {
-            newDiv = $("<div>", {
-                class: 'square',
-                text: cellvalues[b - 1]
+        //// append cells to HTML, break to next line according to cell_row #
+        //for (b = 1; b < cell_array.length + 1; b++) {
+        //    newDiv = $("<div>", {
+        //        class: 'square',
+        //        text: cellvalues[b - 1]
+        //
+        //    });
+        //
+        //    $("#cell-area").append(newDiv);
+        //    if (b % cell_row === 0 && b !== 0) {
+        //        $("#cell-area").append("<br>");
+        //    }
+        //}
+        //$("#select-board").css("visibility", "hidden");
+        //targetSquare = document.getElementsByClassName('square');
+        //$(targetSquare).on('click', function () {
+        //    var square = $(this).text();
+        //    justclicked=this;
+        //        ttt_game.square_clicked(square);  // *** 1
+        //
+        //    if (justclicked["childElementCount"]==0) {
+        //        if (player1) {
+        //            $(this).append("<img src='images/coffeeO.png'>");
+        //            $(this).addClass('selected');
+        //        }
+        //        if (player2) {
+        //            $(this).append("<img src='images/markersX.png'>");
+        //            $(this).addClass('selected');
+        //        }
+        //    }
+        //
+        //    });
 
-            });
+        //TODO error if more players add than can play
+    };
+    self.init = function () {
+        self.game_board_element.find('.square').each(function () {
+            var square = self.make_square($(this));
+            self.game_squares.push(square);
 
-            $("#cell-area").append(newDiv);
-            if (b % cell_row === 0 && b !== 0) {
-                $("#cell-area").append("<br>");
-            }
-        }
-        $("#select-board").css("visibility", "hidden");
-        targetSquare = document.getElementsByClassName('square');
-        $(targetSquare).on('click', function () {
-            var square = $(this).text();
-            justclicked=this;
-                ttt_game.square_clicked(square);  // *** 1
-
-            if (justclicked["childElementCount"]==0) {
-                if (player1) {
-                    $(this).append("<img src='images/coffeeO.png'>");
-                    $(this).addClass('selected');
-                }
-                if (player2) {
-                    $(this).append("<img src='images/markersX.png'>");
-                    $(this).addClass('selected');
-                }
-            }
-
-            });
         })
-    });
-
-    function Board() {
-        //loops through wins array, compares player scores with winning scores
-        this.wins = function () {  // *** 3, if won > go to 4, if not won > go to 5
-            for (var i = 0; i < wins.length; i++) {
-                if ((wins[i] & this.total_player1[0]) === wins[i]) {
-
-                    this.display_results(1);
-                }
-                else if ((wins[i] & this.total_player2[0]) === wins[i]) {
-                    this.display_results(2);
-                }
-
-            }
-
-        };
-        //appends to game board with winner result
-        this.display_results = function (player) {  // *** 4 (game won / finished)
-            if (player === 1) {
-                var h1 = $('<h1>').text("Player 1 Wins!");
-                $('#display_results').append(h1);
-                $('#display_results').css("opacity","1");
-                $('#cell-area').replaceWith("<img src='images/dan_win.png'>")
-            }
-            else if (player === 2) {
-                var h1 = $('<h1>').text("Player 2 Wins!");
-                $('#display_results').append(h1);
-                $('#display_results').css("opacity","1");
-                $('#cell-area').replaceWith("<img src='images/eric_win.png'>")
-            }
-
-        };
-
-//changes player
-        this.change_player = function () {  // *** 5, exit function and wait for next click
-            if (player1 === true && justclicked["childElementCount"]==0) {
-                player1 = false;
-                player2 = true;
-            }
-            else if (justclicked["childElementCount"]==0) {
-                player1 = true;
-                player2 = false;
-            }
-        };
-//records score beginning at zero index
-        this.total_player1 = [0];
-        this.total_player2 = [0];
-
-
-        this.square_clicked = function (square) {  // ** 2
-            var total = 0;
-            if (player1 && justclicked["childElementCount"]==0) {
-                total += parseFloat(square);
-                var new_total1 = this.total_player1[0] + total;
-                this.total_player1.pop();
-                this.total_player1.push(new_total1);
-            }
-            else if (justclicked["childElementCount"]==0) {
-                total += parseFloat(square);
-                var new_total2 = this.total_player2[0] + total;
-                this.total_player2.pop();
-                this.total_player2.push(new_total2);
-            }
-            console.log(this.total_player1, this.total_player2);
-            ttt_game.wins();
-            this.change_player();
-
-
-        };
-    }
-
-    var ttt_game = new Board();
-
-    function makeCellLabels(rows) {
-        var boardsize = rows * rows;
-        NumberOfRows = rows;
-
-        for (var i = 0; i < boardsize; i++) {
-            celllabel = Math.pow(2, i);
-            console.log(celllabel);
-            cellvalues.push(celllabel);
-
+    };
+    //makes a square object this gets pushed into the array
+    self.make_square = function (target_element) {
+        var this_square = new square_template(target_element, self);
+        return this_square;
+    };
+    self.get_current_player = function () {
+        return self.players[self.current_player];
+    };
+    self.next_player = function () {
+        if (self.current_player == 0) {
+            self.current_player = 1;
+        } else {
+            self.current_player = 0;
         }
     };
-
-    //makeCellLabels(cell_row);
-
-    function generateWins(cellvalues) {
-        var rowStartMarker = 0;
-        var rowEndMarker = NumberOfRows - 1;
-        var rowArray = [];
-        var columnArray = [];
-        var diagonalArray = [];
-        var diagonalArray2 = [];
-        for (var j = 0; j < cellvalues.length; j++) {
-            //this makes the row arrays
-            if (cellvalues[j] == cellvalues[rowStartMarker]) {
-                for (var k = j; k <= rowEndMarker; k++) {
-                    rowArray.push(cellvalues[k]);
-                }
-                cellRows.push(rowArray);
-                rowArray = [];
-                //This makes the column arrays
-                for (var m = j; m < NumberOfRows; m++) {
-                    for (var n = j; n < NumberOfRows; n++) {
-                        if (k == NumberOfRows && m == 1) {
-                            //this makes the diagonals
-                            var diagonal = ((k + m) * n);
-                            var diagonal2 = ((k - m) * (n + 1));
-                            diagonalArray.push(cellvalues[diagonal]);
-                            diagonalArray2.push(cellvalues[diagonal2]);
-                        }
-                        columnArray.push(cellvalues[m + (n * NumberOfRows)])
-                    }
-                    cellColumns.push(columnArray);
-                    columnArray = [];
-                }
-
-                rowStartMarker += NumberOfRows;
-            }
-            else if (cellvalues[j] == cellvalues[rowEndMarker]) {
-                rowEndMarker += NumberOfRows;
-
+    self.square_was_clicked = function (the_square) {
+        self.available_squares--;
+        self.players[self.current_player].square_value(the_square.value);
+        self.win();
+        self.next_player();
+    };
+    self.win = function () {
+        for (var i = 0; i < wins.length; i++) {
+            if ((wins[i] & self.players[self.current_player].total[0]) === wins[i]) {
+                self.display_results(self.players[self.current_player]);
+            } else if (self.available_squares == 0) {
+                self.tie();
             }
         }
-        cellDiagonals.push(diagonalArray, diagonalArray2);
-        console.log('winning rows: ', cellRows);
-        console.log('winning columns: ', cellColumns);
-        console.log('winning diagonal: ', cellDiagonals);
-        winningArrays.push(cellRows, cellColumns, cellDiagonals);
-        console.log('winning options: ', winningArrays);
+    };
+    self.tie = function () {
+        var draw_img = $('<img>').attr('src', 'images/draw.png').addClass('avatar_img');
+        $('.display_results').html('');
+        $('.display_results').append(draw_img);
 
-        for (var i = 0; i < winningArrays.length; i++) {
-            var getThisValue = winningArrays[i];
-            var value;
-            for (var k = 0; k < getThisValue.length; k++) {
-                value = getThisValue[k].join(" + ");
-                value = eval(value);
-                wins.push(value);
-            }
+    //
+    ////makeCellLabels(cell_row);
+    //
+    //function generateWins(cellvalues) {
+    //    var rowStartMarker = 0;
+    //    var rowEndMarker = NumberOfRows - 1;
+    //    var rowArray = [];
+    //    var columnArray = [];
+    //    var diagonalArray = [];
+    //    var diagonalArray2 = [];
+    //    for (var j = 0; j < cellvalues.length; j++) {
+    //        //this makes the row arrays
+    //        if (cellvalues[j] == cellvalues[rowStartMarker]) {
+    //            for (var k = j; k <= rowEndMarker; k++) {
+    //                rowArray.push(cellvalues[k]);
+    //            }
+    //            cellRows.push(rowArray);
+    //            rowArray = [];
+    //            //This makes the column arrays
+    //            for (var m = j; m < NumberOfRows; m++) {
+    //                for (var n = j; n < NumberOfRows; n++) {
+    //                    if (k == NumberOfRows && m == 1) {
+    //                        //this makes the diagonals
+    //                        var diagonal = ((k + m) * n);
+    //                        var diagonal2 = ((k - m) * (n + 1));
+    //                        diagonalArray.push(cellvalues[diagonal]);
+    //                        diagonalArray2.push(cellvalues[diagonal2]);
+    //                    }
+    //                    columnArray.push(cellvalues[m + (n * NumberOfRows)])
+    //                }
+    //                cellColumns.push(columnArray);
+    //                columnArray = [];
+    //            }
+
+    };
+    self.display_results = function (winner) {
+        var display = $('.display_results');
+        var winner_img = $('<img>').attr('src', winner.avatar).addClass('avatar_img');
+        $(display).html('');
+        $(display).html(winner_img);
+
+
+    };
+    self.init();
+}
+
+//this is the square object for the tic tac toe game
+var square_template = function (this_element, parent_board) {
+    var self = this;
+    self.game_board = parent_board;
+    self.target_element = this_element;
+    self.value = null;
+    self.square_taken = false;
+    self.init = function () {
+        self.value = self.target_element.attr('value');
+        self.target_element.click(function () {
+            self.clicked();
+        })
+        return self;
+    };
+    self.clicked = function () {
+        console.log("my value is ", self.value);
+        var current_player = self.game_board.get_current_player(); //get the current player from game board
+        var current_icon = current_player.get_icon(); //get image from the current player
+        self.append_image(current_icon);
+        // check if you can click and if you win
+    };
+    //Need to some how upload correct image to board
+    self.append_image = function (image_src) {
+        if (self.square_taken == false) {
+            self.square_taken = true;
+            self.image = $('<img>').attr('src', image_src).addClass('board_img');
+            self.target_element.append(self.image);
+            self.game_board.square_was_clicked(self);
+        } else {
+            alert("square taken pick another");
         }
+    };
+    self.init();
+};
 
-        console.log('You win if you get one of these scores: ', wins);
+var player_template = function (avatar_specs) {
+    var self = this;
+    self.name = name;
+    self.total = [0];
+    self.square_value = function (square_value) {
+        var total = 0;
+        //takes the div number adds it to 0 index of sum pops the index and replaces it
+        total += parseFloat(square_value);
+        var new_total = self.total[0] + total;
+        self.total.pop();
+        self.total.push(new_total);
+        console.log(self.total);
+
+    };
+    self.get_avatar = function () {
+        return self.avatar;
     }
-function thought_bubbles() {
-    setTimeout(function () {
-        $('.Dan_though1, .Eric_thought1').fadeOut('slow');
-    }, 4000);
+    self.get_icon = function () {
+        return self.icon;
+    };
+    self.init = function (avatar_specs) {
+        self.long_name = avatar_specs.long_name;
+        self.name = avatar_specs.name;
+        self.saying = avatar_specs.saying;
+        self.avatar = avatar_specs.avatar;
+        self.icon = avatar_specs.icon;
+        $('.player1').append(self.long_name);
+    };
+    self.init(avatar_specs);
 
 }
+//This objects has the specs of each player
+var player_avatar_specs = {
+    dan: {
+        name: 'Dan',
+        long_name: 'Daniel Paschal',
+        avatar: 'images/dan_win.png',
+        'icon': 'images/markersX.png',
+        saying: 'Let\'s sing a song!',
+        saying_image: 'gitfire.jpg'
+    },
+    eric: {
+        name: 'Eric',
+        long_name: 'Eric Johnson',
+        avatar: 'images/eric_win.png',
+        'icon': 'images/coffeeO.png',
+        saying: 'nope!',
+        saying_image: 'coffee_logic.jpg'
+    },
+}
+
+function thought_bubbles() {
+    setTimeout(function () {
+        $('.player1').attr('src', 'images/Dan_thought2.png');
+        $('.player2').attr('src', 'images/Eric_thought2.png');
+    }, 2000);
+    setTimeout(function () {
+        $('.player1').attr('src', 'images/Dan_thought3.png');
+        $('.player2').attr('src', 'images/Eric_thought3.png');
+    }, 4000);
+};
+
 thought_bubbles();
+
+
+$(document).ready(function () {
+
+    ttt_game = new Board($("#game-board"));
+    ttt_game.add_player("eric");
+    ttt_game.add_player("dan");
+    $('button').on('click', function () {
+        //create a better way to restart the game.. reset all stats
+        location.reload();
+    })
+    thought_bubbles();
+
+});
