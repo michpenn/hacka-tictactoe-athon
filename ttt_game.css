@@ -71,3 +71,11 @@ h1 {
     height: 17vh;
     margin:1%;
 }
+@media screen and (max-width: 480px) {
+    .thought_bubble_container, .player1,.player2, .white_board, .player1 img,.player2 img, .dan {
+        display: none;
+    }
+    .board_img{
+        width: 60px;
+    }
+}
