@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="46b20ae6-1ef7-40bb-b165-504303e3a311" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/background.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/images/background_image.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/Dan_thought1.png" afterPath="$PROJECT_DIR$/images/Dan_thought1.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/Eric_though1.png" afterPath="$PROJECT_DIR$/images/Eric_though1.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/dan_win.png" afterPath="$PROJECT_DIR$/images/dan_win.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/eric1.png" afterPath="$PROJECT_DIR$/images/eric1.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/eric_win.png" afterPath="$PROJECT_DIR$/images/eric_win.png" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/Eric_though1.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tictactoe.js" afterPath="$PROJECT_DIR$/tictactoe.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ttt_game.css" afterPath="$PROJECT_DIR$/ttt_game.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="hacka-tictactoe-athon.iws" />
@@ -33,7 +26,7 @@
     <favorites_list name="hacka-tictactoe-athon" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.25264645">
+    <splitter split-orientation="horizontal" split-proportion="0.56880736">
       <split-first>
         <leaf>
           <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
@@ -56,21 +49,21 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="ttt_game.css" pinned="false" current-in-tab="true">
+          <file leaf-file-name="ttt_game.css" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/ttt_game.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.45676005">
+                <state vertical-scroll-proportion="0.0">
                   <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="tictactoe.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="tictactoe.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/tictactoe.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="136" column="1" selection-start-line="136" selection-start-column="1" selection-end-line="136" selection-end-column="1" />
+                <state vertical-scroll-proportion="0.7856273">
+                  <caret line="43" column="53" selection-start-line="43" selection-start-column="53" selection-end-line="43" selection-end-column="53" />
                   <folding />
                 </state>
               </provider>
@@ -83,8 +76,8 @@
           <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.3952321">
-                  <caret line="30" column="111" selection-start-line="30" selection-start-column="111" selection-end-line="30" selection-end-column="111" />
+                <state vertical-scroll-proportion="0.56461734">
+                  <caret line="38" column="18" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
                   <folding />
                 </state>
               </provider>
@@ -101,9 +94,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/style.css" />
-        <option value="$PROJECT_DIR$/tictactoe.js" />
         <option value="$PROJECT_DIR$/ttt_game.css" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/tictactoe.js" />
       </list>
     </option>
   </component>
@@ -586,17 +579,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tictactoe.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="136" column="1" selection-start-line="136" selection-start-column="1" selection-end-line="136" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ttt_game.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45676005">
+        <state vertical-scroll-proportion="0.0">
           <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding />
         </state>
@@ -604,8 +589,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3952321">
-          <caret line="30" column="111" selection-start-line="30" selection-start-column="111" selection-end-line="30" selection-end-column="111" />
+        <state vertical-scroll-proportion="-22.625">
+          <caret line="50" column="75" selection-start-line="50" selection-start-column="75" selection-end-line="50" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/draw.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tictactoe.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7856273">
+          <caret line="43" column="53" selection-start-line="43" selection-start-column="53" selection-end-line="43" selection-end-column="53" />
           <folding />
         </state>
       </provider>
