@@ -11,8 +11,11 @@ var wins = [];
 var NumberOfRows;
 var player1 = true;
 var player2 = false;
-var justclicked;
+var justClicked;
 var cell_array = [];
+
+var ttt_Players = new Players();
+var ttt_game = new Board();
 
 
 $(document).ready(function () {
@@ -27,18 +30,54 @@ $(document).ready(function () {
         generateWins(cellvalues);
 
         var targetSquare = document.getElementsByClassName('square');
-        ttt_game.place_markers(targetSquare)
+        ttt_game.place_markers(targetSquare);    // *** 1
 
     });
 });
 
 
+function Players() {
+    //records players' scores
+    this.total_player1 = 0;
+    this.total_player2 = 0;
+
+    //get the clicked square's value and assign it to the player's score
+    this.assign_score= function (square) {  // *** 3
+        var total = 0;
+        if (player1 && justClicked["childElementCount"] == 0) {
+            total += parseFloat(square);
+            this.total_player1 += total;
+        }
+        else if (justClicked["childElementCount"] == 0) {
+            total += parseFloat(square);
+            this.total_player2 += total;
+        }
+        console.log(this.total_player1, this.total_player2);
+        ttt_game.wins(this.total_player1, this.total_player2);
+        this.change_player();
+    };
+
+    //changes player
+    this.change_player = function () {  // *** 6
+        if (player1 === true && justClicked["childElementCount"]==0) {
+            player1 = false;
+            player2 = true;
+        }
+        else if (justClicked["childElementCount"]==0) {
+            player1 = true;
+            player2 = false;
+        }
+    };
+
+}
+
+
 function Board() {
-    // create unique cell values: 2^x used to determine winning condition
+    // create unique cell values: 2^n used to determine winning condition
     this.makeCellLabels = function(rows) {
-        var boardsize = rows * rows;
+        var board_size = rows * rows;
         NumberOfRows = rows;
-        for (var i = 0; i < boardsize; i++) {
+        for (var i = 0; i < board_size; i++) {
             celllabel = Math.pow(2, i);
             console.log(celllabel);
             cellvalues.push(celllabel);
@@ -67,12 +106,14 @@ function Board() {
     };
 
     // place current player's marker image on the clicked square
-    this.place_markers = function(targetSquare) {
+    this.place_markers = function(targetSquare) {   // *** 2
         $(targetSquare).on('click', function () {
             var square = $(this).text();
-            justclicked=this;
-            ttt_game.square_clicked(square);  // *** 1
-            if (justclicked["childElementCount"]==0) {
+            justClicked=this;
+
+            ttt_Players.assign_score(square);
+
+            if (justClicked["childElementCount"]==0) {
                 if (player1) {
                     $(this).append("<img src='images/coffeeO.png'>");
                 }
@@ -83,44 +124,20 @@ function Board() {
         });
     };
 
-    //records score beginning at zero index
-    this.total_player1 = [0];
-    this.total_player2 = [0];
-
-    //get the clicked square's value and assign it to the player's array
-    this.square_clicked = function (square) {  // ** 2
-        var total = 0;
-        if (player1 && justclicked["childElementCount"]==0) {
-            total += parseFloat(square);
-            var new_total1 = this.total_player1[0] + total;
-            this.total_player1.pop();
-            this.total_player1.push(new_total1);
-        }
-        else if (justclicked["childElementCount"]==0) {
-            total += parseFloat(square);
-            var new_total2 = this.total_player2[0] + total;
-            this.total_player2.pop();
-            this.total_player2.push(new_total2);
-        }
-        console.log(this.total_player1, this.total_player2);
-        ttt_game.wins();
-        this.change_player();
-    };
-
-    //loops through wins array, compares player scores with winning scores
-    this.wins = function () {  // *** 3, if won > go to 4, if not won > go to 5
+    //loops through wins array, compute bitwise AND operation (&), compares player scores with winning scores
+    this.wins = function (p1_score, p2_score) {   // *** 4 (skip to 6 if nobody won)
         for (var i = 0; i < wins.length; i++) {
-            if ((wins[i] & this.total_player1[0]) === wins[i]) {
+            if ((wins[i] & p1_score) === wins[i]) {
                 this.display_results(1);
             }
-            else if ((wins[i] & this.total_player2[0]) === wins[i]) {
+            else if ((wins[i] & p2_score) === wins[i]) {
                 this.display_results(2);
             }
         }
     };
 
-    //appends to game board with winner result
-    this.display_results = function (player) {  // *** 4 (game won / finished)
+    //appends to game board DOM with winner result
+    this.display_results = function (player) {  // *** 5 (game won)
         if (player === 1) {
             var p1_h2 = $("<h2>").text("Player 1 Wins!");
             var p1_img = $("<img src='images/dan_win.png'>");
@@ -135,21 +152,7 @@ function Board() {
         }
     };
 
-    //changes player
-    this.change_player = function () {  // *** 5, exit function and wait for next click
-        if (player1 === true && justclicked["childElementCount"]==0) {
-            player1 = false;
-            player2 = true;
-        }
-        else if (justclicked["childElementCount"]==0) {
-            player1 = true;
-            player2 = false;
-        }
-    };
 }
-
-
-var ttt_game = new Board();
 
 
 // generate winning condition
